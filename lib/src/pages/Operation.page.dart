@@ -3,7 +3,7 @@ import 'package:demo_3d_cube/src/pages/index.dart';
 import 'package:flutter/material.dart';
 
 class OperationPage extends StatefulWidget {
-  OperationPage({
+  const OperationPage({
     required this.category,
     Key? key,
   }) : super(key: key);
@@ -27,7 +27,7 @@ class _OperationPage extends State<OperationPage> {
 
   @override
   void dispose() {
-    _controller?.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -74,15 +74,15 @@ class _OperationPage extends State<OperationPage> {
                             color: '#D9D9D9'.toColor(),
                             borderRadius: BorderRadius.circular(5)),
                         child: TweenAnimationBuilder<Duration>(
-                          duration: Duration(minutes: 1,seconds: 30),
+                          duration: const Duration(minutes: 1, seconds: 30),
                           tween: Tween(
-                              begin: Duration(minutes: 1,seconds: 30), end: Duration.zero),
+                              begin: const Duration(minutes: 1, seconds: 30),
+                              end: Duration.zero),
                           onEnd: () {
-                            print('Timer ended');
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (builder) => const TimesUp()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (builder) => const TimesUp()));
                           },
                           builder: (BuildContext context, Duration value,
                               Widget? child) {
@@ -376,7 +376,7 @@ class _OperationPage extends State<OperationPage> {
                         child: Container(
                           width: 122,
                           // margin: const EdgeInsets.fromLTRB(20, 100, 20, 20),
-                          margin: EdgeInsets.only(right: 4.5),
+                          margin: const EdgeInsets.only(right: 4.5),
                           color: '#92D3F5'.toColor(),
                           child: Center(
                               child: Image.asset(

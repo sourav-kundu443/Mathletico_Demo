@@ -1,6 +1,5 @@
 import 'dart:math' as math;
 
-import 'package:demo_3d_cube/extensions.dart';
 import 'package:demo_3d_cube/src/widgets/CubeFaces/index.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector2, Vector3;
@@ -204,51 +203,6 @@ class _CubixDState extends State<CubixD> with SingleTickerProviderStateMixin {
               ),
             ),
           ),
-          // Positioned(
-          //   child: RawGestureDetector(
-          //     gestures: {
-          //       AllowMultipleVerticalDragGestureRecognizer:
-          //           GestureRecognizerFactoryWithHandlers<
-          //               AllowMultipleVerticalDragGestureRecognizer>(
-          //         () => AllowMultipleVerticalDragGestureRecognizer(),
-          //         (AllowMultipleVerticalDragGestureRecognizer instance) {
-          //           instance.onUpdate =
-          //               widget.onSelected != null ? _onDraging : null;
-          //         },
-          //       )
-          //     },
-          //     child: RawGestureDetector(
-          //       gestures: {
-          //         AllowMultipleHorizontalDragGestureRecognizer:
-          //             GestureRecognizerFactoryWithHandlers<
-          //                 AllowMultipleHorizontalDragGestureRecognizer>(
-          //           () => AllowMultipleHorizontalDragGestureRecognizer(),
-          //           (AllowMultipleHorizontalDragGestureRecognizer instance) {
-          //             instance.onUpdate =
-          //                 widget.onSelected != null ? _onDraging : null;
-          //           },
-          //         )
-          //       },
-          //       child: SizedBox(
-          //         height: _height,
-          //         width: _width,
-          //         child: Transform(
-          //           transform: Matrix4.identity()
-          //             ..translate(_width * 0.09, _height * 0.09, 0)
-          //             ..setEntry(3, 2, 0.001)
-          //             ..rotateX(widget.delta.x)
-          //             ..rotateY(widget.delta.y),
-          //           alignment: FractionalOffset.center,
-          //           child:
-          //           InkWell(
-          //           onTap: ()=> print('ppppp'),
-          //             child: Stack(children: faces),
-          //           ),
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // ),
           Positioned.fill(
             child: GestureDetector(
               onHorizontalDragUpdate:
@@ -263,12 +217,6 @@ class _CubixDState extends State<CubixD> with SingleTickerProviderStateMixin {
               ),
             ),
           ),
-          // Container(
-          //   height: _height *1.2,
-          //   width: _width*1.2,
-          //   color: Color.fromRGBO(0, 0, 0, 1),
-          //   child: FrontFace(),
-          // ),
         ],
       ),
     );

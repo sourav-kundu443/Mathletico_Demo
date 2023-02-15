@@ -13,17 +13,8 @@ class ChooseCategory extends StatefulWidget {
 }
 
 class _ChooseCategory extends State<ChooseCategory> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    print('widget.title -${widget.title}');
     return Scaffold(
         body: SafeArea(
           child: Container(
@@ -100,7 +91,7 @@ class _ChooseCategory extends State<ChooseCategory> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (builder) =>
-                                        OperationPage(category: 'integers')));
+                                        const OperationPage(category: 'integers')));
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -125,7 +116,7 @@ class _ChooseCategory extends State<ChooseCategory> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (builder) =>
-                                        OperationPage(category: 'decimals')));
+                                        const OperationPage(category: 'decimals')));
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -150,7 +141,7 @@ class _ChooseCategory extends State<ChooseCategory> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (builder) =>
-                                        OperationPage(category: 'fractions')));
+                                        const OperationPage(category: 'fractions')));
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -176,6 +167,6 @@ class _ChooseCategory extends State<ChooseCategory> {
             ),
           ),
         ),
-        bottomNavigationBar: BottomTabNavigator());
+        bottomNavigationBar: const BottomTabNavigator());
   }
 }

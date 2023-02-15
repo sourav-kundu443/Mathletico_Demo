@@ -1,5 +1,4 @@
 import 'package:demo_3d_cube/extensions.dart';
-import 'package:demo_3d_cube/src/pages/index.dart';
 import 'package:demo_3d_cube/src/widgets/CubeFaces/index.dart';
 import 'package:demo_3d_cube/src/widgets/index.dart';
 import 'package:flutter/material.dart';
@@ -42,13 +41,11 @@ class _HomeDashboardState extends State<HomeDashboard> {
                 delta: Vector2(x, y),
                 newSide: newSide,
                 onSelected: (SelectedSide opt, Vector2 delta) {
-                  print(
-                      'On selected callback:\n\topt = ${opt}\n\tdelta = ${delta}');
+                  // print(
+                  //     'On selected callback:\n\topt = ${opt}\n\tdelta = ${delta}');
                   if (opt == SelectedSide.left) {
                     setState(() {
-                      x = newSide == SelectedSide.back
-                          ?  0.0
-                          : 0.0;
+                      x = newSide == SelectedSide.back ? 0.0 : 0.0;
                       y = newSide == SelectedSide.back
                           ? 4.725148911483915
                           : -1.4945853721967617;
@@ -115,31 +112,6 @@ class _HomeDashboardState extends State<HomeDashboard> {
                 bottom: BottomFace(false),
                 right: RightFace(false),
               ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     Navigator.push(
-              //         context,
-              //         MaterialPageRoute(
-              //             builder: (builder) => const ChooseCategory()));
-              //   },
-              //   style: ElevatedButton.styleFrom(
-              //     backgroundColor: '#15f5ef'.toColor(),
-              //     padding:
-              //         const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-              //     textStyle: const TextStyle(
-              //       fontSize: 20,
-              //       fontWeight: FontWeight.bold,
-              //     ),
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(12), // <-- Radius
-              //     ),
-              //   ),
-              //   child: Text(
-              //     'Play',
-              //     style: TextStyle(
-              //         color: '#252525'.toColor(), fontFamily: 'FredokaOne'),
-              //   ),
-              // )
             ],
           ),
         ),
