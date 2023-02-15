@@ -20,179 +20,23 @@ class FaceContainer extends StatelessWidget {
         children: <Widget>[
           Column(
             children: [
-              SmallCubeBox(
-                  onTap: onTap,
-                  boxText: 'A',
-                  boxColor: boxColor),
-              SmallCubeBox(
-                  onTap: onTap,
-                  boxText:'B',
-                  boxColor: boxColor),
-              SmallCubeBox(
-                  onTap: onTap,
-                  boxText: 'C',
-                  boxColor: boxColor),
-              // Container(
-              //   width: 80,
-              //   height: 80,
-              //   decoration: BoxDecoration(
-              //     color: const Color.fromRGBO(0, 255, 0, 1),
-              //     border: Border.all(
-              //       width: 2,
-              //       color: const Color.fromRGBO(0, 0, 0, 1),
-              //     ),
-              //     borderRadius: const BorderRadius.all(Radius.circular(10)),
-              //   ),
-              //   child: const Center(
-              //       child: Text(
-              //     'L1',
-              //   )),
-              // ),
-              // Container(
-              //   width: 80,
-              //   height: 80,
-              //   decoration: BoxDecoration(
-              //     color: const Color.fromRGBO(0, 255, 0, 1),
-              //     border: Border.all(
-              //       width: 2,
-              //       color: const Color.fromRGBO(0, 0, 0, 1),
-              //     ),
-              //     borderRadius: const BorderRadius.all(Radius.circular(10)),
-              //   ),
-              //   child: const Center(
-              //       child: Text(
-              //     'M1',
-              //   )),
-              // ),
+              SmallCubeBox(onTap: onTap, boxText: 'A', boxColor: boxColor , isTransparent:false,),
+              SmallCubeBox(onTap: onTap, boxText: 'B', boxColor: boxColor, isTransparent:false),
+              SmallCubeBox(onTap: onTap, boxText: 'C', boxColor: boxColor, isTransparent:false),
             ],
           ),
           Column(
             children: [
-              SmallCubeBox(
-                  onTap: onTap,
-                  boxText: 'D',
-                  boxColor: boxColor),
-              SmallCubeBox(
-                onTap: onTap,
-                boxText: 'E',
-                boxColor: boxColor
-              ),
-              SmallCubeBox(
-                onTap: onTap,
-                boxText: 'F',
-                boxColor: boxColor
-              ),
-              // Container(
-              //   width: 80,
-              //   height: 80,
-              //   decoration: BoxDecoration(
-              //     color: const Color.fromRGBO(0, 255, 0, 1),
-              //     border: Border.all(
-              //       width: 2,
-              //       color: const Color.fromRGBO(0, 0, 0, 1),
-              //     ),
-              //     borderRadius: const BorderRadius.all(Radius.circular(10)),
-              //   ),
-              //   child: const Center(
-              //       child: Text(
-              //     'N1',
-              //   )),
-              // ),
-              // Container(
-              //   width: 80,
-              //   height: 80,
-              //   decoration: BoxDecoration(
-              //     color: const Color.fromRGBO(0, 255, 0, 1),
-              //     border: Border.all(
-              //       width: 2,
-              //       color: const Color.fromRGBO(0, 0, 0, 1),
-              //     ),
-              //     borderRadius: const BorderRadius.all(Radius.circular(10)),
-              //   ),
-              //   child: const Center(
-              //       child: Text(
-              //     'O1',
-              //   )),
-              // ),
-              // Container(
-              //   width: 80,
-              //   height: 80,
-              //   decoration: BoxDecoration(
-              //     color: const Color.fromRGBO(0, 255, 0, 1),
-              //     border: Border.all(
-              //       width: 2,
-              //       color: const Color.fromRGBO(0, 0, 0, 1),
-              //     ),
-              //     borderRadius: const BorderRadius.all(Radius.circular(10)),
-              //   ),
-              //   child: const Center(
-              //       child: Text(
-              //     'P1',
-              //   )),
-              // ),
+              SmallCubeBox(onTap: onTap, boxText: 'D', boxColor: boxColor, isTransparent:false),
+              SmallCubeBox(onTap: onTap, boxText: 'E', boxColor: boxColor, isTransparent:false),
+              SmallCubeBox(onTap: onTap, boxText: 'F', boxColor: boxColor, isTransparent:false),
             ],
           ),
           Column(
             children: [
-              SmallCubeBox(
-                onTap: onTap,
-                boxText: 'G',
-                boxColor: boxColor
-              ),
-              SmallCubeBox(
-                onTap: onTap,
-                boxText: 'H',
-                boxColor: boxColor
-              ),
-              SmallCubeBox(
-                  onTap: onTap,
-                  boxText: 'I',
-                  boxColor: boxColor),
-              // Container(
-              //   width: 80,
-              //   height: 80,
-              //   decoration: BoxDecoration(
-              //     color: const Color.fromRGBO(0, 255, 0, 1),
-              //     border: Border.all(
-              //       width: 2,
-              //       color: const Color.fromRGBO(0, 0, 0, 1),
-              //     ),
-              //     borderRadius: const BorderRadius.all(Radius.circular(10)),
-              //   ),
-              //   child: const Center(
-              //       child: Text(
-              //     'Q1',
-              //   )),
-              // ),
-              // Container(
-              //   width: 80,
-              //   height: 80,
-              //   decoration: BoxDecoration(
-              //     color: const Color.fromRGBO(0, 255, 0, 1),
-              //     border: Border.all(
-              //       width: 2,
-              //       color: const Color.fromRGBO(0, 0, 0, 1),
-              //     ),
-              //     borderRadius: const BorderRadius.all(Radius.circular(10)),
-              //   ),
-              //   child: const Center(
-              //       child: Text(
-              //     'R1',
-              //   )),
-              // ),
-              // Container(
-              //   width: 80,
-              //   height: 80,
-              //   decoration: BoxDecoration(
-              //     color: const Color.fromRGBO(0, 255, 0, 1),
-              //     border: Border.all(
-              //       width: 2,
-              //       color: const Color.fromRGBO(0, 0, 0, 1),
-              //     ),
-              //     borderRadius: const BorderRadius.all(Radius.circular(10)),
-              //   ),
-              //   child: const Center(child: Text('S1')),
-              // ),
+              SmallCubeBox(onTap: onTap, boxText: 'G', boxColor: boxColor, isTransparent:false),
+              SmallCubeBox(onTap: onTap, boxText: 'H', boxColor: boxColor, isTransparent:false),
+              SmallCubeBox(onTap: onTap, boxText: 'I', boxColor: boxColor, isTransparent:false),
             ],
           ),
         ],

@@ -5,12 +5,14 @@ class SmallCubeBox extends StatelessWidget {
     required this.onTap,
     required this.boxColor,
     required this.boxText,
+    required this.isTransparent,
     Key? key,
   }) : super(key: key);
 
   VoidCallback onTap;
   Color boxColor;
   String boxText;
+  bool isTransparent;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class SmallCubeBox extends StatelessWidget {
         width: 80,
         height: 80,
         decoration: BoxDecoration(
-          color: boxColor,
+          color: isTransparent ? Color.fromRGBO(0, 0, 0, 0) : boxColor,
           border: Border.all(
             width: 2,
             color: const Color.fromRGBO(0, 0, 0, 1),

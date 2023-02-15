@@ -1,15 +1,30 @@
-import 'dart:math';
-
 import 'package:demo_3d_cube/extensions.dart';
 import 'package:demo_3d_cube/src/pages/index.dart';
+import 'package:demo_3d_cube/src/widgets/CubeFaces/index.dart';
 import 'package:demo_3d_cube/src/widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart';
 
 import '../enums/cubeEnums.enum.dart';
 
-class HomeDashboard extends StatelessWidget {
+class HomeDashboard extends StatefulWidget {
   const HomeDashboard({Key? key}) : super(key: key);
+
+  @override
+  State<HomeDashboard> createState() => _HomeDashboardState();
+}
+
+class _HomeDashboardState extends State<HomeDashboard> {
+  dynamic x, y;
+  late SelectedSide newSide;
+
+  @override
+  void initState() {
+    super.initState();
+    x = 0.0;
+    y = 0.0;
+    newSide = SelectedSide.front;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,38 +39,61 @@ class HomeDashboard extends StatelessWidget {
             children: [
               CubixD(
                 size: 240.0,
-                delta: Vector2(pi / 4, pi / 4),
+                delta: Vector2(x, y),
+                newSide: newSide,
                 onSelected: (SelectedSide opt, Vector2 delta) {
                   print(
                       'On selected callback:\n\topt = ${opt}\n\tdelta = ${delta}');
-                  // setState(() {
-                  //   face = opt as String;
-                  // });
+                  if (opt == SelectedSide.left) {
+                    setState(() {
+                      x = 0.0;
+                      y = -1.4945853721967617;
+                      newSide = opt;
+                    });
+                  } else if (opt == SelectedSide.right) {
+                    setState(() {
+                      x = 0.0;
+                      y = 1.6056595265195701;
+                      newSide = opt;
+                    });
+                  } else if (opt == SelectedSide.top) {
+                    setState(() {
+                      x = 1.6343170766932564;
+                      y = 0.0;
+                      newSide = opt;
+                    });
+                  } else if (opt == SelectedSide.bottom) {
+                    setState(() {
+                      x = -1.510360970072175;
+                      y = 0.0;
+                      newSide = opt;
+                    });
+                  } else if (opt == SelectedSide.back) {
+                    setState(() {
+                      x = 0.0;
+                      y = 3.211214463439966;
+                      newSide = opt;
+                    });
+                  } else if (opt == SelectedSide.front) {
+                    setState(() {
+                      x = 0.0;
+                      y = 0.0;
+                      newSide = opt;
+                    });
+                  } else {
+                    setState(() {
+                      x = x;
+                      y = y;
+                      newSide = newSide;
+                    });
+                  }
                 },
-                left: FaceContainer(
-                  onTap: () => print('left'),
-                  boxColor: '#1cec00'.toColor(),
-                ),
-                front: FaceContainer(
-                  onTap: () => print('frontxxx'),
-                  boxColor: '#0011ec'.toColor(),
-                ),
-                back: FaceContainer(
-                  onTap: () => print('back'),
-                  boxColor: '#ec0035'.toColor(),
-                ),
-                top: FaceContainer(
-                  onTap: () => print('top'),
-                  boxColor: '#e8ff0c'.toColor(),
-                ),
-                bottom: FaceContainer(
-                  onTap: () => print('bottom'),
-                  boxColor: '#00dec8'.toColor(),
-                ),
-                right: FaceContainer(
-                  onTap: () => print('right'),
-                  boxColor: '#ff69b4'.toColor(),
-                ),
+                left: LeftFace(false),
+                front: FrontFace(false),
+                back: BackFace(false),
+                top: TopFace(false),
+                bottom: BottomFace(false),
+                right: RightFace(false),
               ),
               ElevatedButton(
                 onPressed: () {
