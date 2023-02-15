@@ -1,5 +1,7 @@
 import 'dart:math' as math;
 
+import 'package:demo_3d_cube/extensions.dart';
+import 'package:demo_3d_cube/src/widgets/CubeFaces/index.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector2, Vector3;
 import 'package:flutter/gestures.dart';
@@ -83,6 +85,8 @@ class CubixD extends StatefulWidget {
   /// ```
   final Widget back;
 
+  final SelectedSide newSide;
+
   const CubixD({
     Key? key,
     required this.delta,
@@ -93,6 +97,7 @@ class CubixD extends StatefulWidget {
     required this.back,
     required this.right,
     required this.left,
+    required this.newSide,
     this.onSelected,
     this.onPanUpdate,
     this.sensitivityFac = 1.0,
@@ -142,17 +147,34 @@ class _CubixDState extends State<CubixD> with SingleTickerProviderStateMixin {
       transform: Matrix4.identity()
         ..translate(Vector3(0, 0, -_width / 2))
         ..rotateZ(rotate ? math.pi : 0),
-      child: widget.front,
-      alignment: Alignment.center, // Enfrente
+      alignment: Alignment.center,
+      child: widget.front, // Enfrente
     );
     back = Transform(
       transform: Matrix4.identity()
         ..translate(Vector3(0, 0, _height / 2))
         ..rotateZ(rotate ? math.pi : 0)
         ..rotateY(math.pi),
-      child: widget.back,
-      alignment: Alignment.center, // Atrás
+      alignment: Alignment.center,
+      child: widget.back, // Atrás
     );
+  }
+
+  Widget getNewCubeFace(SelectedSide side) {
+    switch (side) {
+      case SelectedSide.top:
+        return TopFace(true);
+      case SelectedSide.bottom:
+        return BottomFace(true);
+      case SelectedSide.left:
+        return LeftFace(true);
+      case SelectedSide.right:
+        return RightFace(true);
+      case SelectedSide.back:
+        return BackFace(true);
+      default:
+        return FrontFace(true);
+    }
   }
 
   @override
@@ -162,17 +184,12 @@ class _CubixDState extends State<CubixD> with SingleTickerProviderStateMixin {
         (widget.delta.x < -math.pi / 2 && widget.delta.x > -3 * math.pi / 2);
     _cubeEngine(widget.delta.y > 0);
     _switch.run(() => _buildFaces(opt), opt);
-    print('opt-- $opt');
     return SizedBox(
       height: _height * 1.2,
       width: _width * 1.2,
       child: Stack(
         children: <Widget>[
           GestureDetector(
-            onHorizontalDragUpdate:
-            widget.onSelected != null ? _onDraging : null,
-            onVerticalDragUpdate:
-            widget.onSelected != null ? _onDraging : null,
             child: SizedBox(
               height: _height,
               width: _width,
@@ -183,7 +200,7 @@ class _CubixDState extends State<CubixD> with SingleTickerProviderStateMixin {
                   ..rotateX(widget.delta.x)
                   ..rotateY(widget.delta.y),
                 alignment: FractionalOffset.center,
-                child:Stack(children: faces),
+                child: Stack(children: faces),
               ),
             ),
           ),
@@ -232,22 +249,25 @@ class _CubixDState extends State<CubixD> with SingleTickerProviderStateMixin {
           //     ),
           //   ),
           // ),
-          // Positioned.fill(
-          //   child: GestureDetector(
-          //     // behavior: HitTestBehavior.deferToChild,
-          //     onHorizontalDragUpdate:
-          //     widget.onSelected != null ? _onDraging : null,
-          //     onVerticalDragUpdate:
-          //     widget.onSelected != null ? _onDraging : null,
-          //     child: InkWell(
-          //       onTap: () => print('jjjj'),
-          //       child: Container(
-          //         color: const Color.fromRGBO(255, 0, 0, .5),
-          //         height: 240.0,
-          //         width: 240.0,
-          //       ),
-          //     ),
-          //   ),
+          Positioned.fill(
+            child: GestureDetector(
+              onHorizontalDragUpdate:
+                  widget.onSelected != null ? _onDraging : null,
+              onVerticalDragUpdate:
+                  widget.onSelected != null ? _onDraging : null,
+              child: Container(
+                height: _height,
+                width: _width,
+                color: Color.fromRGBO(0, 0, 0, 0),
+                child: getNewCubeFace(widget.newSide),
+              ),
+            ),
+          ),
+          // Container(
+          //   height: _height *1.2,
+          //   width: _width*1.2,
+          //   color: Color.fromRGBO(0, 0, 0, 1),
+          //   child: FrontFace(),
           // ),
         ],
       ),
@@ -448,7 +468,6 @@ class _CubixDState extends State<CubixD> with SingleTickerProviderStateMixin {
         (_values[1] < barrier || _values[1] > math.pi / 2 - barrier)) {
       return _selectedHelper();
     }
-
     return SelectedSide.none;
   }
 
