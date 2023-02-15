@@ -175,7 +175,6 @@ class _CubixDState extends State<CubixD> with SingleTickerProviderStateMixin {
       default:
         return FrontFace(true);
     }
-    return Container();
   }
 
   @override

@@ -46,14 +46,22 @@ class _HomeDashboardState extends State<HomeDashboard> {
                       'On selected callback:\n\topt = ${opt}\n\tdelta = ${delta}');
                   if (opt == SelectedSide.left) {
                     setState(() {
-                      x = 0.0;
-                      y = -1.4945853721967617;
+                      x = newSide == SelectedSide.back
+                          ?  0.0
+                          : 0.0;
+                      y = newSide == SelectedSide.back
+                          ? 4.725148911483915
+                          : -1.4945853721967617;
                       newSide = opt;
                     });
                   } else if (opt == SelectedSide.right) {
                     setState(() {
-                      x = 0.0;
-                      y = 1.6056595265195701;
+                      x = newSide == SelectedSide.back
+                          ? 3.192492925187825
+                          : 0.0;
+                      y = newSide == SelectedSide.back
+                          ? -1.6563854821189703
+                          : 1.5613135364697852;
                       newSide = opt;
                     });
                   } else if (opt == SelectedSide.top) {
@@ -70,21 +78,33 @@ class _HomeDashboardState extends State<HomeDashboard> {
                     });
                   } else if (opt == SelectedSide.back) {
                     setState(() {
-                      x = 0.0;
-                      y = 3.211214463439966;
+                      x = newSide == SelectedSide.left
+                          ? 0.0
+                          : newSide == SelectedSide.right
+                              ? 0.0
+                              : 3.192492925187825;
+                      y = newSide == SelectedSide.left
+                          ? -2.998688397918353
+                          : newSide == SelectedSide.right
+                              ? 3.0591411862409403
+                              : 0.0;
                       newSide = opt;
                     });
                   } else if (opt == SelectedSide.front) {
                     setState(() {
-                      x = 0.0;
-                      y = 0.0;
+                      x = newSide == SelectedSide.right
+                          ? 3.192492925187825
+                          : 0.0;
+                      y = newSide == SelectedSide.right
+                          ? -3.3096332762627205
+                          : 0.0;
                       newSide = opt;
                     });
                   } else {
                     setState(() {
-                      x = x;
-                      y = y;
-                      newSide = newSide;
+                      x = 0.0;
+                      y = 0.0;
+                      newSide = SelectedSide.front;
                     });
                   }
                 },
@@ -95,31 +115,31 @@ class _HomeDashboardState extends State<HomeDashboard> {
                 bottom: BottomFace(false),
                 right: RightFace(false),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) => const ChooseCategory()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: '#15f5ef'.toColor(),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  textStyle: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // <-- Radius
-                  ),
-                ),
-                child: Text(
-                  'Play',
-                  style: TextStyle(
-                      color: '#252525'.toColor(), fontFamily: 'FredokaOne'),
-                ),
-              )
+              // ElevatedButton(
+              //   onPressed: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //             builder: (builder) => const ChooseCategory()));
+              //   },
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: '#15f5ef'.toColor(),
+              //     padding:
+              //         const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              //     textStyle: const TextStyle(
+              //       fontSize: 20,
+              //       fontWeight: FontWeight.bold,
+              //     ),
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(12), // <-- Radius
+              //     ),
+              //   ),
+              //   child: Text(
+              //     'Play',
+              //     style: TextStyle(
+              //         color: '#252525'.toColor(), fontFamily: 'FredokaOne'),
+              //   ),
+              // )
             ],
           ),
         ),

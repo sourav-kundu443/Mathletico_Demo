@@ -1,10 +1,17 @@
 import 'package:demo_3d_cube/extensions.dart';
+import 'package:demo_3d_cube/src/pages/index.dart';
 import 'package:demo_3d_cube/src/widgets/index.dart';
 import 'package:flutter/material.dart';
 
 class LeftFace extends StatelessWidget {
   final bool isTransparent;
+
   LeftFace(this.isTransparent);
+
+  void handleOnTap(BuildContext context, String title) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => ChooseCategory(title)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,66 +24,66 @@ class LeftFace extends StatelessWidget {
           Column(
             children: [
               SmallCubeBox(
-                onTap: () => print('L_A'),
-                boxText: 'L_A',
+                onTap: () => handleOnTap(context, 'Subtraction'),
+                boxText: 'Subtraction',
                 boxColor: '#B90000'.toColor(),
-                isTransparent:isTransparent,
+                isTransparent: isTransparent,
               ),
               SmallCubeBox(
-                onTap: () => print('L_C'),
+                onTap: () => handleOnTap(context, 'L_C'),
                 boxText: 'L_C',
                 boxColor: '#FF5900'.toColor(),
-                isTransparent:isTransparent,
+                isTransparent: isTransparent,
               ),
               SmallCubeBox(
-                onTap: () => print('L_G'),
+                onTap: () => handleOnTap(context, 'L_G'),
                 boxText: 'L_G',
                 boxColor: '#FFD500'.toColor(),
-                isTransparent:isTransparent,
+                isTransparent: isTransparent,
               ),
             ],
           ),
           Column(
             children: [
               SmallCubeBox(
-                onTap: () => print('L_B'),
+                onTap: () => handleOnTap(context, 'L_B'),
                 boxText: 'L_B',
                 boxColor: '#0045AD'.toColor(),
-                isTransparent:isTransparent,
+                isTransparent: isTransparent,
               ),
               SmallCubeBox(
-                onTap: () => print('L_E'),
+                onTap: () => handleOnTap(context, 'L_E'),
                 boxText: 'L_E',
                 boxColor: '#B90000'.toColor(),
-                isTransparent:isTransparent,
+                isTransparent: isTransparent,
               ),
               SmallCubeBox(
-                onTap: () => print('L_I'),
+                onTap: () => handleOnTap(context, 'L_I'),
                 boxText: 'L_I',
                 boxColor: '#FFFFFF'.toColor(),
-                isTransparent:isTransparent,
+                isTransparent: isTransparent,
               ),
             ],
           ),
           Column(
             children: [
               SmallCubeBox(
-                onTap: () => print('L_H'),
+                onTap: () => handleOnTap(context, 'L_H'),
                 boxText: 'L_H',
                 boxColor: '#0045AD'.toColor(),
-                isTransparent:isTransparent,
+                isTransparent: isTransparent,
               ),
               SmallCubeBox(
-                onTap: () => print('L_F'),
+                onTap: () => handleOnTap(context, 'L_F'),
                 boxText: 'L_F',
                 boxColor: '#009B48'.toColor(),
-                isTransparent:isTransparent,
+                isTransparent: isTransparent,
               ),
               SmallCubeBox(
-                onTap: () => print('L_D'),
+                onTap: () => handleOnTap(context, 'L_D'),
                 boxText: 'L_D',
                 boxColor: '#FFFFFF'.toColor(),
-                isTransparent:isTransparent,
+                isTransparent: isTransparent,
               ),
             ],
           ),
