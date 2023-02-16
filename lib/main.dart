@@ -1,9 +1,7 @@
 import 'package:demo_3d_cube/src/pages/index.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  debugPrintGestureArenaDiagnostics = true;
   runApp(const MyApp());
 }
 

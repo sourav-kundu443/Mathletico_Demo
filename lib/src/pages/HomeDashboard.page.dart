@@ -41,8 +41,8 @@ class _HomeDashboardState extends State<HomeDashboard> {
                 delta: Vector2(x, y),
                 newSide: newSide,
                 onSelected: (SelectedSide opt, Vector2 delta) {
-                  // print(
-                  //     'On selected callback:\n\topt = ${opt}\n\tdelta = ${delta}');
+                  print(
+                      'On selected callback:\n\topt = ${opt}\n\tdelta = ${delta}');
                   if (opt == SelectedSide.left) {
                     setState(() {
                       x = newSide == SelectedSide.back ? 0.0 : 0.0;
@@ -98,10 +98,11 @@ class _HomeDashboardState extends State<HomeDashboard> {
                       newSide = opt;
                     });
                   } else {
+                    print('else');
                     setState(() {
                       x = 0.0;
                       y = 0.0;
-                      newSide = SelectedSide.front;
+                      newSide = newSide;
                     });
                   }
                 },

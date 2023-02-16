@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.demo_3d_cube.demo_3d_cube">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="demo_3d_cube"
         android:name="${applicationName}"

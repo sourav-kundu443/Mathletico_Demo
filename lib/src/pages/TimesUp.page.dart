@@ -2,10 +2,18 @@ import 'package:demo_3d_cube/src/pages/HomeDashboard.page.dart';
 import 'package:flutter/material.dart';
 
 class TimesUp extends StatelessWidget {
-  const TimesUp({Key? key}) : super(key: key);
+  final int totalCorrectAnswerGiven;
+  final int totalIncorrectAnswerGiven;
+
+  TimesUp(
+      {required this.totalCorrectAnswerGiven,
+      required this.totalIncorrectAnswerGiven,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print('answer t = $totalCorrectAnswerGiven , $totalIncorrectAnswerGiven');
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -13,12 +21,14 @@ class TimesUp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text('Times Up!'),
-              ElevatedButton(onPressed: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (builder) => const HomeDashboard()));
-              }, child: Text('Home'))
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) => const HomeDashboard()));
+                  },
+                  child: Text('Home'))
             ],
           ),
         ),

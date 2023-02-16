@@ -178,9 +178,12 @@ class _CubixDState extends State<CubixD> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    print('x = ${widget.delta.x}');
+    print('y = ${widget.delta.y}');
     final opt = (widget.delta.x > math.pi / 2 &&
             widget.delta.x < 3 * math.pi / 2) ||
         (widget.delta.x < -math.pi / 2 && widget.delta.x > -3 * math.pi / 2);
+    print('opt = ${opt}');
     _cubeEngine(widget.delta.y > 0);
     _switch.run(() => _buildFaces(opt), opt);
     return SizedBox(
