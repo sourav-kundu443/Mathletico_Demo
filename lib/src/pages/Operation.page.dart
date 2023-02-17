@@ -107,10 +107,10 @@ class _OperationPage extends State<OperationPage> {
                                   borderRadius: BorderRadius.circular(5)),
                               child: TweenAnimationBuilder<Duration>(
                                 duration:
-                                    const Duration(seconds: 30),
+                                    const Duration(minutes: 1, seconds: 30),
                                 tween: Tween(
                                     begin:
-                                        const Duration(seconds: 30),
+                                        const Duration(minutes: 1, seconds: 30),
                                     end: Duration.zero),
                                 onEnd: () {
                                   print(
